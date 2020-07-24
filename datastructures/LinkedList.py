@@ -36,6 +36,7 @@ class LinkedList:
 
     def get(self, index):
         if index >= self.length:
+            print("Error: index out of bound")
             return None
         elif index == 0:
             return self.head.data
@@ -53,6 +54,24 @@ class LinkedList:
         self.head = new_node
         self.length += 1
 
+    def insert(self, index, value):
+        new_node = Node(value)
+        current_index = 1
+        if index == 0:
+            self.prepend(value)
+        previous_node = self.head
+        current_node = self.head.next
+        while True:
+            if current_index == index:
+                previous_node.next = new_node
+                new_node.next = current_node
+                return None
+            current_index += 1
+            previous_node = previous_node.next
+            current_node = current_node.next
+
+
+
 # Test cases
 my_linked_list = LinkedList(12)
 my_linked_list.append(4)
@@ -60,4 +79,6 @@ my_linked_list.append(6)
 print(my_linked_list.get(2))
 my_linked_list.prepend(7)
 print(my_linked_list.get(0))
+my_linked_list.insert(1, 13)
+print(my_linked_list.get(1))
 
