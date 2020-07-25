@@ -56,7 +56,6 @@ class LinkedList:
         self.head = new_node
         self.length += 1
 
-    # !Insert is not working
     def insert(self, index, value):
         new_node = Node(value)
         if index >= self.length:
@@ -65,12 +64,14 @@ class LinkedList:
         current_index = 1
         if index == 0:
             self.prepend(value)
+            return None
         previous_node = self.head
         current_node = self.head.next
         while True:
             if current_index == index:
                 previous_node.next = new_node
                 new_node.next = current_node
+                self.length += 1
                 return None
             current_index += 1
             previous_node = previous_node.next
@@ -174,7 +175,9 @@ my_linked_list.prepend(0)
 my_linked_list.append(20)
 my_linked_list.print_list()
 my_linked_list.length
-my_linked_list.remove(4)
+my_linked_list.remove(2)
+my_linked_list.print_list()
+my_linked_list.insert(1, 14)
 my_linked_list.print_list()
 
 
