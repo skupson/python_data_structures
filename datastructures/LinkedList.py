@@ -13,14 +13,11 @@ my_link_list = {
     }
 }
 """
-
-
 class Node:
     def __init__(self, data=None, next=None, previous=None):
         self.data = data
         self.next = next
         self.previous = previous
-
 
 class LinkedList:
     def __init__(self, data):
@@ -108,7 +105,7 @@ class LinkedList:
             current_node = current_node.next
 
 
-class DoublyLinkedList:
+class DoublyLinkedList(LinkedList):
     def __init__(self, data):
         self.head = Node(data)
         self.length = 1
@@ -122,11 +119,18 @@ class DoublyLinkedList:
         new_node.previous = current_node
         self.length += 1
 
+    def prepend(self, value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head.previous = new_node
+        self.head = new_node
+        self.length += 1
+
 
 # Test cases
-my_linked_list = LinkedList(10)
-my_linked_list.append(12)
-my_linked_list.append(13)
-my_linked_list.print_list()
+my_doubly_linked_list = DoublyLinkedList(1)
+my_doubly_linked_list.append(2)
+my_doubly_linked_list.print_list()
+
 
 
