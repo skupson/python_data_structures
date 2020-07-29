@@ -1,3 +1,4 @@
+from Node import Node
 class Array:
     def __init__(self):
         self.data = {}

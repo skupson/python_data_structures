@@ -13,11 +13,8 @@ my_link_list = {
     }
 }
 """
-class Node:
-    def __init__(self, data=None, next=None, previous=None):
-        self.data = data
-        self.next = next
-        self.previous = previous
+from Node import Node
+
 
 class LinkedList:
     def __init__(self, data):
