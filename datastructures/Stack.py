@@ -1,5 +1,6 @@
 from Node import Node
 
+
 class Stack:
     def __init__(self):
         self.length = 0
@@ -28,11 +29,12 @@ class Stack:
         counter = 0
         print(self.top.data)
         current_node = self.top.next
-        while counter < self.length-1:
+        while counter < self.length - 1:
             print("|")
             print(current_node.data)
             counter += 1
             current_node = current_node.next
+
 
 # Test cases
 my_stack = Stack()
@@ -43,5 +45,3 @@ my_stack.push(4)
 my_stack.items()
 my_stack.pop()
 my_stack.items()
-
-
